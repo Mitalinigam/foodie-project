@@ -1,0 +1,126 @@
+body {
+  font-family: Open Sans, sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f8f9fa;
+}
+
+header {
+  font-family: Poppins;
+  background-color: #0d1a52;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+input[type="text"], input[type="email"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+}
+
+button {
+  padding: 10px 15px;
+  background-color: #2a6781;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  padding: 20px;
+}
+
+.card {
+  margin: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #fff;
+}
+
+.menu .item {
+  margin: 10px 0;
+}
+
+.cart-link {
+  display: inline-block;
+  margin: 20px;
+  background: #11b51f;
+  color: white;
+  padding: 10px;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+footer {
+  background-color: #343a40;
+  color: white;
+  text-align: center;
+  padding: 15px;
+}
+.item button {
+  margin: 2px;
+  padding: 6px 10px;
+}
+.item span {
+  margin: 0 10px;
+  font-weight: bold;
+}
+.card img {
+  width: 200px;     /* or any size you like */
+  height: 150px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.restaurant-row {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.restaurant-info {
+  flex: 1;
+}
+
+.restaurant-info h3 {
+  margin: 0;
+  font-size: 20px;
+}
+
+.restaurant-info p {
+  margin: 5px 0;
+  color: #555;
+}
+
+.restaurant-info a {
+  display: inline-block;
+  margin-top: 8px;
+  padding: 6px 12px;
+  background-color: #2a6781;
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+}
+
+.restaurant-img img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 10px;
+}
+.offer-banner {
+  background-color: #ecf011;
+  padding: 12px 20px;
+  border: 2px dashed #bc1010;
+  font-weight: bold;
+  font-size: 18px;
+  margin: 20px;
+  border-radius: 10px;
+  text-align: center;
+}

@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Your Cart</title>
+  <link rel="stylesheet" href="style.css">
+  <style>
+    .cart-item {
+      border: 1px solid #ccc;
+      margin-bottom: 15px;
+      padding: 10px;
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      background: #f9f9f9;
+    }
+    .cart-item img {
+      width: 80px;
+      height: 80px;
+      object-fit: cover;
+      border-radius: 8px;
+    }
+    .cart-item-details {
+      flex: 1;
+    }
+    .total-box {
+      margin-top: 20px;
+      font-weight: bold;
+      font-size: 18px;
+    }
+    button {
+      padding: 6px 12px;
+      background-color: crimson;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      margin-top: 15px;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Your Cart 🛒</h1>
+
+  <div id="cart-container"></div>
+  <div class="total-box" id="total-breakdown"></div>
+
+  <button onclick="clearCart()">Clear Cart</button>
+
+  <script>
+    const cart = JSON.parse(localStorage.getItem("cart")) || {};
+    const cartContainer = document.getElementById("cart-container");
+
+    // Get restaurant ID to fetch images
+    const restaurantId = localStorage.getItem("restaurant-source");
+
+    const menus = {
+      "pizza-palace": {
+        items: [
+          { id: "margherita", name: "Margherita Pizza", price: 250, img: "assets/margherita.jpeg" },
+          { id: "farmhouse", name: "Farmhouse Pizza", price: 320, img: "assets/farmhouse.jpeg" },
+          { id: "pepsi", name: "Pepsi", price: 40, img: "assets/pepsi.jpeg" }
+        ]
+      },
+      "burger-barn": {
+        items: [
+          { id: "aloo", name: "Aloo Tikki Burger", price: 80, img: "assets/aloo.jpg" },
+          { id: "maharaja", name: "Maharaja Burger", price: 120, img: "assets/maharaja.jpg" },
+          { id: "cheese", name: "Cheese Burger", price: 90, img: "assets/cheese.jpg" }
+        ]
+      },
+      "coffee-cafe": {
+        items: [
+          { id: "cold-coffee", name: "Cold Coffee", price: 80, img: "assets/cold.jpeg" },
+          { id: "hot-coffee", name: "Hot Coffee", price: 70, img: "assets/hot.jpg" },
+          { id: "cappuccino", name: "Cappuccino", price: 120, img: "assets/cappuccino.jpg" }
+        ]
+      }
+    };
+
+    let subtotal = 0;
+    const GST_PERCENT = 5;
+    const DELIVERY_FEE = 40;
+
+    if (Object.keys(cart).length === 0) {
+      cartContainer.innerHTML = '<p>Your cart is empty.</p>';
+    } else {
+      const menuItems = menus[restaurantId]?.items || [];
+
+      for (let id in cart) {
+        const cartItem = cart[id];
+        const matchItem = menuItems.find(item => item.id === id);
+        const image = matchItem?.img || "assets/default.jpg";
+        const itemTotal = cartItem.price * cartItem.qty;
+        subtotal += itemTotal;
+
+        const div = document.createElement("div");
+        div.classList.add("cart-item");
+        div.innerHTML = `
+          <img src="${image}" alt="${cartItem.name}">
+          <div class="cart-item-details">
+            <h3>${cartItem.name}</h3>
+            <p>₹${cartItem.price} × ${cartItem.qty} = ₹${itemTotal}</p>
+          </div>
+        `;
+        cartContainer.appendChild(div);
+      }
+
+      const gst = Math.round(subtotal * (GST_PERCENT / 100));
+      const grandTotal = subtotal + gst + DELIVERY_FEE;
+
+      document.getElementById("total-breakdown").innerHTML = `
+        <p>Subtotal: ₹${subtotal}</p>
+        <p>GST (${GST_PERCENT}%): ₹${gst}</p>
+        <p>Delivery Fee: ₹${DELIVERY_FEE}</p>
+        <p><strong>Grand Total: ₹${grandTotal}</strong></p>
+      `;
+    }
+
+    function clearCart() {
+      localStorage.removeItem("cart");
+      localStorage.removeItem("restaurant-source");
+      location.reload();
+    }
+  </script>
+
+</body>
+</html>

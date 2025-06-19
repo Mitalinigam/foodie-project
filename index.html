@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+  <div class="offer-banner">
+  <p>🎉 Flat ₹100 off on orders above ₹499</p>
+</div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Foodie</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Foodie</h1>
+    <input type="text" id="search-input" placeholder="Search for food or restaurants..." />
+
+  </header>
+
+  <section class="restaurants">
+    <h2>Top Restaurants</h2>
+    <div class="card">
+      <div class="card restaurant-card">
+        <div class="restaurant-row">
+          <div class="restaurant-info">
+            <h3>Pizza Palace</h3>
+            <p>Italian • ⭐ 4.5</p>
+            <a href="restaurant.html?id=pizza-palace">View Menu</a>
+          </div>
+          <div class="restaurant-img">
+            <img src="assets/pizza.jpeg" alt="Pizza Palace" />
+          </div>
+        </div>
+      </div>
+
+      <div class="card restaurant-card">
+        <div class="restaurant-row">
+          <div class="restaurant-info">
+            <h3>Burger Barn</h3>
+            <p>Fast Food • ⭐ 4.3</p>
+            <a href="restaurant.html?id=burger-barn">View Menu</a>
+          </div>
+          <div class="restaurant-img">
+            <img src="assets/burger.jpg" alt="Burger Barn" />
+          </div>
+        </div>
+      </div>  
+      <div class="card restaurant-card">
+        <div class="restaurant-row">
+          <div class="restaurant-info">
+            <h3>Coffee Cafe</h3>
+            <p>Bevarages • ⭐ 4.1</p>
+            <a href="restaurant.html?id=coffee-cafe">View Menu</a>
+          </div>
+          <div class="restaurant-img">
+            <img src="assets/coffee.jpeg" alt="Coffee Cafe" />
+          </div>
+        </div>
+      </div>
+    </div> 
+  </section>
+
+  <footer>
+    <a href="contact.html">Contact Us</a>
+    <p>Mobile No: +919918208379</p>
+    <p>© 2025 Zomato Lite</p>
+  </footer>
+<script>
+  const searchInput = document.getElementById("search-input");
+
+  searchInput.addEventListener("input", function () {
+    const query = searchInput.value.toLowerCase();
+    const cards = document.querySelectorAll(".restaurant-card");
+
+    cards.forEach(card => {
+      const name = card.querySelector("h3").textContent.toLowerCase();
+      if (name.includes(query)) {
+        card.style.display = "block";
+      } else {
+        card.style.display = "none";
+      }
+    });
+  });
+</script>
+
+</body>
+</html>
