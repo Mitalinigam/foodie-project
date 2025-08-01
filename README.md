@@ -25,35 +25,31 @@ Shows top restaurants with cuisine type and rating.
 
 ---
 
-### 📋 Restaurant Menu
+###  Restaurant Menu
 Users can view menu items and add them to cart.
 
 ![Menu Page](./screenshots/menu.png)
 
 ---
 
-### 🧾 Cart Summary
+###  Cart Summary
 Shows items added, pricing, tax, and total amount.
 
 ![Cart Page](./screenshots/cart.png)
 
 ---
 
-## ⚙️ Tech Stack
+## ⚙Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript
-- **Optional Backend**: Node.js / JSON Server (not required for static version)
+- ** Backend**: Node.js / JSON Server (not required for static version)
 
 ---
 
-## 🚀 How to Run
+##  How to Run
 
 1. Clone the repository
 2. Open `index.html` in a browser
 3. Interact with the UI
 
----
 
-## 🙌 Author
-
-Made with ❤️ by [Your Name]
