@@ -39,7 +39,7 @@ Shows items added, pricing, tax, and total amount.
 
 ---
 
-## ⚙Tech Stack
+## Tech Stack
 
 - **Frontend**: HTML, CSS, JavaScript
 - ** Backend**: Node.js / JSON Server (not required for static version)
